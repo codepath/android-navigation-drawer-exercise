@@ -2,7 +2,7 @@
 
 Android app to use as the base app for implementing material design style navigation drawer.
 
-![Imgur](http://i.imgur.com/eImuvBp.gif)
+<img src="http://i.imgur.com/eImuvBp.gif" height="500"/>
 
 The app provides four pre-defined fragments to use when a list item in the navigation drawer is clicked.
 * SouthParkFragment
