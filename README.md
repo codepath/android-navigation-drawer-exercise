@@ -13,7 +13,7 @@ The app provides four pre-defined fragments to use when a list item in the navig
 ## Usage
 This app is intended to be the base project on top of which new features can be added. To use it, clone the project and import it using the following steps:
 
-![Imgur](http://i.imgur.com/joPKoTk.gif)
+![Imgur](http://i.imgur.com/SSpyxZZ.gif)
 
 ## Suggested extensions:
 
