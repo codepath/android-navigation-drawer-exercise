@@ -1,6 +1,7 @@
 package com.codepath.android.navigationdrawerexercise.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
@@ -19,6 +20,7 @@ import com.codepath.android.navigationdrawerexercise.fragments.SouthParkFragment
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawer;
+    private NavigationView nvDrawer;
     private Toolbar toolbar;
 
 
@@ -28,7 +30,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setupToolbar();
-        setupDrawerInActivity();
+
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        setupNavigationView(nvDrawer);
     }
 
 
@@ -38,8 +44,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void setupDrawerInActivity() {
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+    private void setupNavigationView(NavigationView navigation) {
+        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+        {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem)
+            {
+                selectDrawerItem(menuItem);
+                return true;
+            }
+        });
     }
 
 
@@ -59,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             default:
                 fragmentClass = SouthParkFragment.class;
         }
+
         try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (InstantiationException e) {
