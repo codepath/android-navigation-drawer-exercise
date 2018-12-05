@@ -6,10 +6,10 @@ android:
   components:
   - tools
   - platform-tools
-  - build-tools-25.0.3
-  - android-25
-  licenses:
-  - android-sdk-license-.+
+  - android-28
+before_install:
+  - mkdir "$ANDROID_HOME/licenses" || true
+  - echo "d56f5187479451eabf01fb78af6dfcb131a6481e" > "$ANDROID_HOME/licenses/android-sdk-license"
 script:
 - "./gradlew build check --daemon"
 after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"
